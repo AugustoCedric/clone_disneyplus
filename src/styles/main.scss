@@ -1,5 +1,72 @@
-$bgColor: rgb(19, 216, 157);
+// Importação do módulo 'hero' (certifique-se de que é necessário)
+@use "hero";
+@use "variaveis";
 
-body{
-    background-color: $bgColor;
+@font-face {
+  font-family: Avenir;
+  src: url(../../assets/fonts/Avenir-Regular.woff2);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url(../../assets/fonts/Avenir-Bold.woff2);
+  font-weight: 700;
+}
+
+// Reset de estilos
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Criando o bloco de cores de Fundo da Página
+body {
+  background-color: variaveis.$corDeFundo;
+  font-family: Avenir, sans-serif;
+}
+
+// Vamos criar um mixin para padronizar os fonts
+@mixin text($fontSize: 16px) {
+  font-size: $fontSize;
+  line-height: $fontSize + 10px;
+  color: variaveis.$corTextoPrincial;
+}
+
+// Criar um mixin para o Título
+@mixin title($fontSize: 28px) {
+  @include text($fontSize);
+  color: variaveis.$corTextoSecundario;
+}
+
+// Estilos para classes específicas
+.text--big {
+  @include text(18px);
+}
+
+.text {
+  @include text;
+}
+
+.text--small {
+  @include text(12px);
+}
+
+.link-text {
+  @include text(18px);
+  text-decoration: underline;
+  color: variaveis.$corTextoSecundario;
+}
+
+.title--big {
+  @include title(44px);
+}
+
+.title {
+  @include title(40px);
+}
+
+.title--small {
+  @include title(28px);
 }
