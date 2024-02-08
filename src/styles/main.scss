@@ -1,7 +1,10 @@
-// Importação do módulo 'hero' (certifique-se de que é necessário)
+// Importação de módulos
 @use "hero";
 @use "variaveis";
+@use "shows";
+@use "plans";
 
+// Definição de fontes
 @font-face {
   font-family: Avenir;
   src: url(../../assets/fonts/Avenir-Regular.woff2);
@@ -14,27 +17,27 @@
   font-weight: 700;
 }
 
-// Reset de estilos
+// Reset de estilos e configurações iniciais
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-// Criando o bloco de cores de Fundo da Página
-body {
-  background-color: variaveis.$corDeFundo;
   font-family: Avenir, sans-serif;
 }
 
-// Vamos criar um mixin para padronizar os fonts
+// Bloco de cores de fundo da página
+body {
+  background-color: variaveis.$corDeFundo;
+}
+
+// Mixin para padronizar fonts
 @mixin text($fontSize: 16px) {
   font-size: $fontSize;
   line-height: $fontSize + 10px;
   color: variaveis.$corTextoPrincial;
 }
 
-// Criar um mixin para o Título
+// Mixin para o título
 @mixin title($fontSize: 28px) {
   @include text($fontSize);
   color: variaveis.$corTextoSecundario;
@@ -69,4 +72,17 @@ body {
 
 .title--small {
   @include title(28px);
+}
+
+.button {
+  display: block;
+  width: 100%;
+  height: 60px;
+  font-size: 18px;
+  color: variaveis.$corTextoSecundario;
+  background-color: #6421ff;
+  text-transform: uppercase;
+  border-radius: 4px;
+  margin-top: 2vw;
+  margin-bottom: 8px;
 }
