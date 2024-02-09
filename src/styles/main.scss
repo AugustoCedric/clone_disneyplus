@@ -3,6 +3,9 @@
 @use "variaveis";
 @use "shows";
 @use "plans";
+@use "available-devices";
+@use "faq";
+@use "footer";
 
 // Definição de fontes
 @font-face {
@@ -34,7 +37,7 @@ body {
 @mixin text($fontSize: 16px) {
   font-size: $fontSize;
   line-height: $fontSize + 10px;
-  color: variaveis.$corTextoPrincial;
+  color: variaveis.$corTextoPrincipal;
 }
 
 // Mixin para o título
@@ -46,6 +49,15 @@ body {
 // Estilos para classes específicas
 .text--big {
   @include text(18px);
+}
+
+.text--subItem {
+  list-style-type: disc;
+
+  li {
+    padding-top: 20px;
+    margin-left: 40px;
+  }
 }
 
 .text {
@@ -74,6 +86,7 @@ body {
   @include title(28px);
 }
 
+// Estilo para a classe .button
 .button {
   display: block;
   width: 100%;
@@ -83,6 +96,45 @@ body {
   background-color: #6421ff;
   text-transform: uppercase;
   border-radius: 4px;
-  margin-top: 2vw;
+  margin-top: 10px; // Ajuste para margem em pixels
   margin-bottom: 8px;
+}
+
+.image-text-section {
+  padding: 5.6vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+
+  img {
+    max-width: 100%;
+  }
+
+  &__text_container {
+    padding: 0 2vw;
+
+    h2 {
+      margin-bottom: 24px;
+    }
+  }
+
+  &--image-full-width {
+    display: block;
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+
+    &__text_container {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 100%;
+      width: calc(50% - 5.6vw);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
 }
